@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Lab11withEmpty" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="Theme.Lab11.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">#FFD0BCFF</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_animated_vector</item>
+        <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="postSplashScreenTheme">@style/Theme.Lab11.SplashScreen</item>
+    </style>
+</resources>
