@@ -14,7 +14,6 @@ fun FriendsScreen(navController: NavController, modifier: Modifier){
         Button(onClick = {
             val route: String = Destination.FriendsDetails.createRoute(2)
             navController.navigate(route)
-
         }) { Text(text = "Go to details")
 
         }

@@ -42,7 +42,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Lab11withEmptyTheme {
                 val navController = rememberNavController()
-                MyBottomNavigation(navController)
+                MyBottomNavigation(navController, modifier = Modifier)
             }
         }
     }
@@ -132,17 +132,20 @@ sealed class Destination(val route: String) {
 }
 
 @Composable
-fun MyBottomNavigation(navController: NavHostController) {
+fun MyBottomNavigation(navController: NavHostController, modifier: Modifier) {
     Scaffold(
         bottomBar = { MyBottomNav(navController) },
         modifier = Modifier.fillMaxSize()
     ) { internalPaddings ->
         val modifier = Modifier.padding(internalPaddings)
         NavHost(navController = navController, startDestination = Destination.Home.route) {
-            composable(Destination.Home.route) { MyHome(navController) }
-            composable(Destination.FriendsDetails.route) { MyProfile(navController) }
-            composable(Destination.Friends.route) { MyAbout(navController) }
-            composable(Destination.Settings.route) { MyAbout(navController) }
+            composable(Destination.Home.route) { HomeScreen(navController ,modifier ) }
+            composable(Destination.FriendsDetails.route) {
+                val friendId = 2
+                FriendsDetailsScreen(navController, friendId, modifier)
+            }
+            composable(Destination.Friends.route) { FriendsScreen(navController, modifier) }
+            composable(Destination.Settings.route) { SettingScreen(navController, modifier) }
         }
     }
 }
